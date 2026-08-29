@@ -1,4 +1,3 @@
-// GuestSearchInput — controlled search input with loading indicator. (SRP)
 "use client";
 
 import { Search } from "lucide-react";
@@ -24,13 +23,7 @@ export function GuestSearchInput({
         placeholder="Escribí tu nombre..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        icon={
-          isSearching ? (
-            <LoadingSpinner size="sm" />
-          ) : (
-            <Search size={16} />
-          )
-        }
+        icon={isSearching ? <LoadingSpinner size="sm" /> : <Search size={16} />}
         autoComplete="off"
         autoFocus
       />

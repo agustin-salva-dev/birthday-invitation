@@ -1,6 +1,3 @@
-// Prisma Client singleton to prevent connection pool exhaustion in serverless.
-// This is especially important for Vercel + Neon environments. (SRP)
-
 import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = globalThis as unknown as {

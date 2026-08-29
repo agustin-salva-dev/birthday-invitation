@@ -1,4 +1,3 @@
-// PageWrapper — global layout with bioluminous starfield background and dragon imagery.
 "use client";
 
 import { ReactNode } from "react";
@@ -19,7 +18,6 @@ const STARS = Array.from({ length: 50 }, (_, i) => ({
 export function PageWrapper({ children }: PageWrapperProps) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#050A18]">
-      {/* Deep space gradient */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -28,7 +26,6 @@ export function PageWrapper({ children }: PageWrapperProps) {
         }}
       />
 
-      {/* Animated stars layer */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {STARS.map((star, i) => (
           <div
@@ -47,7 +44,6 @@ export function PageWrapper({ children }: PageWrapperProps) {
         ))}
       </div>
 
-      {/* Bioluminous orbs */}
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute rounded-full opacity-20 blur-3xl"
@@ -85,7 +81,6 @@ export function PageWrapper({ children }: PageWrapperProps) {
         />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4">
         {children}
       </div>

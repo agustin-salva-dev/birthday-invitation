@@ -1,4 +1,3 @@
-// Countdown — animated countdown to the event date. (SRP)
 "use client";
 
 import { useEffect, useState } from "react";

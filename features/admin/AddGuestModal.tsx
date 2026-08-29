@@ -1,4 +1,3 @@
-// Modal to add a new guest. (SRP)
 "use client";
 
 import { useState } from "react";
@@ -35,7 +34,9 @@ export function AddGuestModal({ isOpen, onClose, onAdd }: AddGuestModalProps) {
       setName("");
       onClose();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo agregar al invitado");
+      setError(
+        err instanceof Error ? err.message : "No se pudo agregar al invitado",
+      );
     } finally {
       setLoading(false);
     }

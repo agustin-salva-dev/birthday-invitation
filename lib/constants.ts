@@ -1,6 +1,3 @@
-// Central constants for the event. Single source of truth. (KISS + DRY)
-// Any change to event details only needs to happen here.
-
 export const EVENT = {
   hostName: "Vanesa",
   age: 25,

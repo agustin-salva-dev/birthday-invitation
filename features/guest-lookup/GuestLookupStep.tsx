@@ -1,4 +1,3 @@
-// GuestLookupStep — orchestrates guest search and identity confirmation. (SRP)
 "use client";
 
 import { useState } from "react";
@@ -42,7 +41,6 @@ export function GuestLookupStep({
 
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      {/* Decorative dragon */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

@@ -1,4 +1,3 @@
-// useGuestSearch — instant client-side guest search hook. (SRP)
 "use client";
 
 import { useState, useMemo } from "react";
@@ -17,7 +16,9 @@ export function useGuestSearch(guests: Guest[]): UseGuestSearchReturn {
   const results = useMemo(() => {
     if (!query.trim()) return [];
     const lower = query.toLowerCase().trim();
-    return guests.filter((g) => g.name.toLowerCase().includes(lower)).slice(0, 8);
+    return guests
+      .filter((g) => g.name.toLowerCase().includes(lower))
+      .slice(0, 8);
   }, [query, guests]);
 
   return { query, setQuery, results, isSearching: false };

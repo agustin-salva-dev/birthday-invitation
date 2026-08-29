@@ -1,4 +1,3 @@
-// useRsvp — handles RSVP submission to API. (SRP)
 "use client";
 
 import { useState } from "react";
@@ -13,11 +12,16 @@ interface UseRsvpReturn {
 }
 
 export function useRsvp(): UseRsvpReturn {
-  const [selectedOption, setSelectedOption] = useState<"CONFIRMED" | "DECLINED" | null>(null);
+  const [selectedOption, setSelectedOption] = useState<
+    "CONFIRMED" | "DECLINED" | null
+  >(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const submit = async (guestId: string, companions: number = 0): Promise<Guest | null> => {
+  const submit = async (
+    guestId: string,
+    companions: number = 0,
+  ): Promise<Guest | null> => {
     if (!selectedOption) return null;
     setLoading(true);
     setError(null);
@@ -38,7 +42,9 @@ export function useRsvp(): UseRsvpReturn {
       return json.data;
     } catch (err) {
       const message =
-        err instanceof Error ? err.message : "Error inesperado. Intentá de nuevo.";
+        err instanceof Error
+          ? err.message
+          : "Error inesperado. Intentá de nuevo.";
       setError(message);
       return null;
     } finally {
@@ -48,4 +54,3 @@ export function useRsvp(): UseRsvpReturn {
 
   return { selectedOption, setSelectedOption, submit, loading, error };
 }
-

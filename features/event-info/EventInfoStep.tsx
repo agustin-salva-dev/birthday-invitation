@@ -1,4 +1,3 @@
-// EventInfoStep — event details, countdown, map, calendar, with Toothless flying in the background.
 "use client";
 
 import { motion } from "framer-motion";
@@ -22,7 +21,6 @@ export function EventInfoStep({
 }: EventInfoStepProps) {
   return (
     <div className="relative py-10 flex flex-col gap-5 w-full overflow-hidden">
-      {/* Background flying Toothless dragon */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: -20 }}
@@ -42,9 +40,7 @@ export function EventInfoStep({
         </motion.div>
       </div>
 
-      {/* Content wrapper */}
       <div className="relative z-10 flex flex-col gap-5 w-full">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +65,6 @@ export function EventInfoStep({
           </div>
         </motion.div>
 
-        {/* Countdown */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -79,7 +74,6 @@ export function EventInfoStep({
           <Countdown />
         </motion.div>
 
-        {/* Event details */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -118,7 +112,6 @@ export function EventInfoStep({
           </div>
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

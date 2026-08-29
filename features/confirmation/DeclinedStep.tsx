@@ -1,4 +1,3 @@
-// DeclinedStep — "No pasa nada, gracias" graceful decline screen. (SRP)
 "use client";
 
 import { motion } from "framer-motion";
@@ -12,7 +11,6 @@ interface DeclinedStepProps {
 export function DeclinedStep({ guest }: DeclinedStepProps) {
   return (
     <div className="flex flex-col items-center gap-6 text-center">
-      {/* Sad/gentle dragon */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -25,8 +23,13 @@ export function DeclinedStep({ guest }: DeclinedStepProps) {
           height={140}
           sizes="240px"
           priority
+          loading="eager"
           className="drop-shadow-[0_0_20px_rgba(180,180,255,0.5)] opacity-80"
-          style={{ animation: "floatSlow 5s ease-in-out infinite" }}
+          style={{
+            width: "auto",
+            height: "auto",
+            animation: "floatSlow 5s ease-in-out infinite",
+          }}
         />
       </motion.div>
 

@@ -1,5 +1,3 @@
-// Main invitation page — orchestrates the multi-step flow.
-// State machine: intro → guest-lookup → event-info → rsvp → confirmed/declined
 "use client";
 
 import { useState, useEffect } from "react";
@@ -11,34 +9,33 @@ import { ErrorMessage } from "@/components/ui/ErrorMessage";
 import { IntroStep } from "@/features/intro/IntroStep";
 import type { Guest, InvitationStep } from "@/types";
 
-// Lazy-load heavy steps to keep initial bundle small
 const GuestLookupStep = dynamic(
   () =>
     import("@/features/guest-lookup/GuestLookupStep").then(
-      (m) => m.GuestLookupStep
+      (m) => m.GuestLookupStep,
     ),
-  { loading: () => <StepLoader /> }
+  { loading: () => <StepLoader /> },
 );
 const EventInfoStep = dynamic(
   () =>
     import("@/features/event-info/EventInfoStep").then((m) => m.EventInfoStep),
-  { loading: () => <StepLoader /> }
+  { loading: () => <StepLoader /> },
 );
 const RsvpStep = dynamic(
   () => import("@/features/rsvp/RsvpStep").then((m) => m.RsvpStep),
-  { loading: () => <StepLoader /> }
+  { loading: () => <StepLoader /> },
 );
 const ConfirmedStep = dynamic(
   () =>
     import("@/features/confirmation/ConfirmedStep").then(
-      (m) => m.ConfirmedStep
+      (m) => m.ConfirmedStep,
     ),
-  { loading: () => <StepLoader /> }
+  { loading: () => <StepLoader /> },
 );
 const DeclinedStep = dynamic(
   () =>
     import("@/features/confirmation/DeclinedStep").then((m) => m.DeclinedStep),
-  { loading: () => <StepLoader /> }
+  { loading: () => <StepLoader /> },
 );
 
 function StepLoader() {
@@ -55,7 +52,6 @@ export default function InvitationPage() {
   const [guests, setGuests] = useState<Guest[]>([]);
   const [guestsLoading, setGuestsLoading] = useState(false);
   const [guestsError, setGuestsError] = useState<string | null>(null);
-  // Pre-load dragon images in background after mount to ensure instant LCP on step navigation
   useEffect(() => {
     const dragonImages = [
       "/dragons/quiensos-dragon.webp",
@@ -72,7 +68,6 @@ export default function InvitationPage() {
     });
   }, []);
 
-  // Pre-fetch guests when user reaches guest-lookup step
   useEffect(() => {
     if (step !== "guest-lookup" || guests.length > 0) return;
 
@@ -91,7 +86,10 @@ export default function InvitationPage() {
         if (!ignore) setGuests(json.data);
       })
       .catch((err) => {
-        if (!ignore) setGuestsError(err instanceof Error ? err.message : "Error inesperado");
+        if (!ignore)
+          setGuestsError(
+            err instanceof Error ? err.message : "Error inesperado",
+          );
       })
       .finally(() => {
         if (!ignore) setGuestsLoading(false);
@@ -110,20 +108,19 @@ export default function InvitationPage() {
   const renderStep = () => {
     switch (step) {
       case "intro":
-        return (
-          <IntroStep onComplete={() => setStep("guest-lookup")} />
-        );
+        return <IntroStep onComplete={() => setStep("guest-lookup")} />;
 
       case "guest-lookup":
         if (guestsLoading)
           return (
             <div className="flex flex-col items-center gap-4">
               <LoadingSpinner size="lg" />
-              <p className="text-white/40 text-sm">Cargando lista de invitados...</p>
+              <p className="text-white/40 text-sm">
+                Cargando lista de invitados...
+              </p>
             </div>
           );
-        if (guestsError)
-          return <ErrorMessage message={guestsError} />;
+        if (guestsError) return <ErrorMessage message={guestsError} />;
         return (
           <GuestLookupStep
             guests={guests}

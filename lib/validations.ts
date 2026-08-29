@@ -1,6 +1,3 @@
-// Zod validation schemas — shared between client and server.
-// Single source of truth for input validation. (DRY + SRP)
-
 import { z } from "zod";
 
 export const rsvpSchema = z.object({
@@ -47,4 +44,3 @@ export type RsvpInput = z.infer<typeof rsvpSchema>;
 export type AdminAuthInput = z.infer<typeof adminAuthSchema>;
 export type CreateGuestInput = z.infer<typeof createGuestSchema>;
 export type UpdateGuestInput = z.infer<typeof updateGuestSchema>;
-

@@ -1,4 +1,3 @@
-// RsvpOption — a single selectable RSVP card with Toothless image icon. (SRP)
 "use client";
 
 import { motion } from "framer-motion";
@@ -37,7 +36,6 @@ export function RsvpOption({
           : "border-white/15 bg-white/5 hover:border-white/30 hover:bg-white/10",
       ].join(" ")}
     >
-      {/* Selected indicator */}
       {selected && (
         <motion.div
           layoutId="rsvp-selection"

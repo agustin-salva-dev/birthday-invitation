@@ -1,4 +1,3 @@
-// GuestsTable — searchable, filterable table of all guests. (SRP)
 "use client";
 
 import { useState, useMemo } from "react";
@@ -30,7 +29,6 @@ export function GuestsTable({
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<GuestStatus | "ALL">("ALL");
 
-  // Selection states for modales
   const [editingGuest, setEditingGuest] = useState<Guest | null>(null);
   const [deletingGuest, setDeletingGuest] = useState<Guest | null>(null);
 
@@ -44,7 +42,6 @@ export function GuestsTable({
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Filters row */}
       <div className="flex flex-col sm:flex-row gap-3">
         <Input
           id="admin-guest-search"
@@ -73,7 +70,6 @@ export function GuestsTable({
         </div>
       </div>
 
-      {/* Table */}
       <div className="overflow-x-auto rounded-xl border border-white/10">
         <table className="w-full text-sm">
           <thead>
@@ -99,10 +95,12 @@ export function GuestsTable({
                 <tr
                   key={guest.id}
                   className={`border-b border-white/5 transition-colors hover:bg-white/5 ${
-                    i % 2 === 0 ? "bg-white/[0.02]" : ""
+                    i % 2 === 0 ? "bg-white/2" : ""
                   }`}
                 >
-                  <td className="px-4 py-3 text-white font-medium">{guest.name}</td>
+                  <td className="px-4 py-3 text-white font-medium">
+                    {guest.name}
+                  </td>
                   <td className="px-4 py-3">
                     <Badge status={guest.status} />
                   </td>
@@ -151,7 +149,6 @@ export function GuestsTable({
         </div>
       </div>
 
-      {/* Modales */}
       <EditGuestModal
         guest={editingGuest}
         isOpen={Boolean(editingGuest)}
@@ -168,4 +165,3 @@ export function GuestsTable({
     </div>
   );
 }
-

@@ -1,4 +1,3 @@
-// StatsCards — displays summary metrics for the admin dashboard. (SRP)
 "use client";
 
 import { motion } from "framer-motion";

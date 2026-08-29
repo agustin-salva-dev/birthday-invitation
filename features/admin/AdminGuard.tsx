@@ -1,4 +1,3 @@
-// AdminGuard — handles PIN login flow and session restoration, renders children when authenticated. (SRP)
 "use client";
 
 import { useState, useEffect } from "react";
@@ -25,7 +24,6 @@ export function AdminGuard({
   const [checkingSession, setCheckingSession] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Check if session cookie is already active on mount
   useEffect(() => {
     fetch("/api/admin/auth")
       .then((res) => {

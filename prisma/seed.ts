@@ -1,6 +1,3 @@
-// Seed script: populates 50 test guests into Neon DB.
-// Run with: npx prisma db seed
-
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -36,7 +33,6 @@ const GUEST_NAMES = [
 async function main() {
   console.log("🐉 Seeding 50 guests to Neon DB...");
 
-  // Clear existing guests to allow re-seeding safely
   await prisma.guest.deleteMany();
 
   const created = await prisma.guest.createMany({

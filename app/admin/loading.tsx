@@ -1,4 +1,3 @@
-// Admin loading skeleton — shown while admin page loads. (SRP)
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 
 export default function AdminLoading() {
