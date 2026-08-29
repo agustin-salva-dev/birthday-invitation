@@ -1,4 +1,3 @@
-// ConfirmedStep — "¡Nos vemos ahí!" celebration screen with baby dragons image.
 "use client";
 
 import { motion } from "framer-motion";
@@ -25,12 +24,11 @@ export function ConfirmedStep({ guest }: ConfirmedStepProps) {
       ? "sin acompañantes"
       : `con ${guest.companions} ${guest.companions === 1 ? "acompañante" : "acompañantes"}`;
 
-  const messageText = `Hola ${EVENT.hostName}, soy ${guest.name} y te confirmo mi asistencia a tu cumpleaños, voy ${companionsText}. Nos vemos ahí!`;
+  const messageText = `Holaa ${EVENT.hostName}, soy ${guest.name} y te confirmo mi asistencia a tu cumpleaños, voy ${companionsText}. Nos vemos ahí!`;
   const whatsappUrl = `https://api.whatsapp.com/send?phone=5491164486950&text=${encodeURIComponent(messageText)}`;
 
   return (
     <div className="flex flex-col items-center gap-6 text-center">
-      {/* Baby dragons playing */}
       <motion.div
         initial={{ y: 30, opacity: 0, scale: 0.85 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -49,7 +47,6 @@ export function ConfirmedStep({ guest }: ConfirmedStepProps) {
         />
       </motion.div>
 
-      {/* Confetti particles */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {CONFETTI_PARTICLES.map((particle) => (
           <motion.div
@@ -91,7 +88,6 @@ export function ConfirmedStep({ guest }: ConfirmedStepProps) {
           ¡Ya estamos contando los días! 🐉✨
         </p>
 
-        {/* Clickable Event Location Box */}
         <a
           href={EVENT.googleMapsUrl}
           target="_blank"
@@ -116,7 +112,6 @@ export function ConfirmedStep({ guest }: ConfirmedStepProps) {
           />
         </a>
 
-        {/* WhatsApp Button */}
         <motion.a
           href={whatsappUrl}
           target="_blank"

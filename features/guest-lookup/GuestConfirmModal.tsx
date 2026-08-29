@@ -1,4 +1,3 @@
-// GuestConfirmModal — "Soy yo / No soy este" confirmation dialog with companion selector. (SRP)
 "use client";
 
 import { Modal } from "@/components/ui/Modal";

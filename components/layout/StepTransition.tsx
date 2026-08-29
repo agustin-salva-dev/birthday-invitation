@@ -1,4 +1,3 @@
-// StepTransition — animated wrapper for step-to-step transitions. (SRP)
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";

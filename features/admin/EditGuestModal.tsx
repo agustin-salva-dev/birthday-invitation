@@ -1,4 +1,3 @@
-// Modal to edit guest's name. (SRP)
 "use client";
 
 import { useState } from "react";
@@ -49,7 +48,9 @@ export function EditGuestModal({
       await onSave(guest.id, name.trim());
       onClose();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo actualizar el nombre");
+      setError(
+        err instanceof Error ? err.message : "No se pudo actualizar el nombre",
+      );
     } finally {
       setLoading(false);
     }

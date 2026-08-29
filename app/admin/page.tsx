@@ -1,4 +1,3 @@
-// Admin dashboard page — protected by AdminGuard (PIN) and middleware (cookie).
 "use client";
 
 import { useState } from "react";
@@ -7,7 +6,7 @@ import { RefreshCw, LogOut, Shield, UserPlus } from "lucide-react";
 import { AdminGuard } from "@/features/admin/AdminGuard";
 import { StatsCards } from "@/features/admin/StatsCards";
 import { GuestsTable } from "@/features/admin/GuestsTable";
-import { ExportCsvButton } from "@/features/admin/ExportCsvButton";
+import { ExportExcelButton } from "@/features/admin/ExportExcelButton";
 import { AddGuestModal } from "@/features/admin/AddGuestModal";
 import { useAdminData } from "@/features/admin/hooks/useAdminData";
 import { Button } from "@/components/ui/Button";
@@ -36,7 +35,6 @@ function AdminDashboard() {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-8">
-      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -72,10 +70,8 @@ function AdminDashboard() {
         </div>
       </motion.div>
 
-      {/* Stats */}
       <StatsCards stats={stats} />
 
-      {/* Table section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -83,7 +79,9 @@ function AdminDashboard() {
         className="mt-8 flex flex-col gap-4"
       >
         <div className="flex items-center justify-between flex-wrap gap-3">
-          <h2 className="text-lg font-semibold text-white">Lista de Invitados</h2>
+          <h2 className="text-lg font-semibold text-white">
+            Lista de Invitados
+          </h2>
           <div className="flex items-center gap-2">
             <Button
               id="admin-add-guest-btn"
@@ -95,7 +93,7 @@ function AdminDashboard() {
               <UserPlus size={14} />
               Agregar Invitado
             </Button>
-            <ExportCsvButton guests={guests} />
+            <ExportExcelButton guests={guests} />
           </div>
         </div>
 
@@ -128,7 +126,6 @@ function AdminDashboard() {
     </div>
   );
 }
-
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

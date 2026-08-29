@@ -1,4 +1,3 @@
-// RsvpStep — "¿Venís?" RSVP selection step with happy and sad Chimuelo images.
 "use client";
 
 import { useState } from "react";
@@ -16,7 +15,8 @@ interface RsvpStepProps {
 }
 
 export function RsvpStep({ guest, onComplete }: RsvpStepProps) {
-  const { selectedOption, setSelectedOption, submit, loading, error } = useRsvp();
+  const { selectedOption, setSelectedOption, submit, loading, error } =
+    useRsvp();
   const [companions, setCompanions] = useState(guest.companions || 0);
 
   const handleSubmit = async () => {
@@ -66,7 +66,6 @@ export function RsvpStep({ guest, onComplete }: RsvpStepProps) {
         />
       </motion.div>
 
-      {/* Companion Selector — only displays when "Sí, voy" is selected */}
       <AnimatePresence>
         {selectedOption === "CONFIRMED" && (
           <motion.div
@@ -103,7 +102,11 @@ export function RsvpStep({ guest, onComplete }: RsvpStepProps) {
                     >
                       <span className="text-base font-bold">{num}</span>
                       <span className="text-[10px] opacity-70">
-                        {num === 0 ? "Solo yo" : num === 1 ? "1 acomp." : `${num} acomp.`}
+                        {num === 0
+                          ? "Solo yo"
+                          : num === 1
+                            ? "1 acomp."
+                            : `${num} acomp.`}
                       </span>
                     </button>
                   );
@@ -114,8 +117,8 @@ export function RsvpStep({ guest, onComplete }: RsvpStepProps) {
                 {companions === 0
                   ? "Irías solo/a al evento."
                   : companions === 1
-                  ? "Irías vos + 1 acompañante (2 personas en total)."
-                  : `Irías vos + ${companions} acompañantes (${companions + 1} personas en total).`}
+                    ? "Irías vos + 1 acompañante (2 personas en total)."
+                    : `Irías vos + ${companions} acompañantes (${companions + 1} personas en total).`}
               </div>
             </div>
           </motion.div>
@@ -132,7 +135,13 @@ export function RsvpStep({ guest, onComplete }: RsvpStepProps) {
       >
         <Button
           id="rsvp-submit-btn"
-          variant={selectedOption === "CONFIRMED" ? "primary" : selectedOption === "DECLINED" ? "ghost" : "primary"}
+          variant={
+            selectedOption === "CONFIRMED"
+              ? "primary"
+              : selectedOption === "DECLINED"
+                ? "ghost"
+                : "primary"
+          }
           size="lg"
           disabled={!selectedOption}
           loading={loading}

@@ -1,4 +1,3 @@
-// ExportCsvButton — downloads confirmed guests as CSV. (SRP)
 "use client";
 
 import { Download } from "lucide-react";

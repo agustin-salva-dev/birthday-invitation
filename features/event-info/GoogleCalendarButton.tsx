@@ -1,4 +1,3 @@
-// GoogleCalendarButton — opens Google Calendar event creation. (SRP)
 "use client";
 
 import { CalendarPlus } from "lucide-react";

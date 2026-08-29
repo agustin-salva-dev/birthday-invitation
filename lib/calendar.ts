@@ -1,13 +1,7 @@
-// Google Calendar URL generator. (SRP — single responsibility: calendar links)
-
 import { EVENT, CALENDAR_EVENT } from "./constants";
 
 function formatDateForCalendar(date: Date): string {
-  return date
-    .toISOString()
-    .replace(/[-:]/g, "")
-    .split(".")[0]
-    .concat("Z");
+  return date.toISOString().replace(/[-:]/g, "").split(".")[0].concat("Z");
 }
 
 export function buildGoogleCalendarUrl(): string {

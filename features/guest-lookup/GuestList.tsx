@@ -1,4 +1,3 @@
-// GuestList — renders the search results with highlight. (SRP)
 "use client";
 
 import { motion } from "framer-motion";
@@ -12,7 +11,10 @@ interface GuestListProps {
 
 function highlightMatch(text: string, query: string): React.ReactNode {
   if (!query) return text;
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
+  const regex = new RegExp(
+    `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+    "gi",
+  );
   const parts = text.split(regex);
   return parts.map((part, i) =>
     regex.test(part) ? (
@@ -21,7 +23,7 @@ function highlightMatch(text: string, query: string): React.ReactNode {
       </mark>
     ) : (
       part
-    )
+    ),
   );
 }
 

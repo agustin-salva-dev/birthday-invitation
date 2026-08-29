@@ -1,4 +1,3 @@
-// IntroStep — animated intro screen with Toothless & Light Fury together image.
 "use client";
 
 import { useEffect, useState } from "react";
@@ -24,7 +23,6 @@ export function IntroStep({ onComplete }: IntroStepProps) {
 
   return (
     <div className="flex flex-col items-center gap-8 text-center">
-      {/* Both dragons together image */}
       <div className="relative flex items-center justify-center h-64 sm:h-72">
         <motion.div
           initial={{ scale: 0.7, opacity: 0 }}
@@ -44,7 +42,6 @@ export function IntroStep({ onComplete }: IntroStepProps) {
         </motion.div>
       </div>
 
-      {/* Title text */}
       {(phase === "text" || phase === "cta") && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +64,6 @@ export function IntroStep({ onComplete }: IntroStepProps) {
         </motion.div>
       )}
 
-      {/* CTA */}
       {phase === "cta" && (
         <motion.div
           initial={{ opacity: 0, y: 16 }}

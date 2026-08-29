@@ -1,4 +1,3 @@
-// Modal to confirm guest deletion. (SRP)
 "use client";
 
 import { useState } from "react";
@@ -32,7 +31,9 @@ export function DeleteGuestModal({
       await onConfirm(guest.id);
       onClose();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo eliminar al invitado");
+      setError(
+        err instanceof Error ? err.message : "No se pudo eliminar al invitado",
+      );
     } finally {
       setLoading(false);
     }
@@ -45,7 +46,8 @@ export function DeleteGuestModal({
           <AlertTriangle size={24} className="shrink-0 text-rose-400" />
           <p className="text-xs">
             ¿Estás seguro de que deseas eliminar a{" "}
-            <strong className="text-white font-semibold">{guest.name}</strong> de la lista? Esta acción no se puede deshacer.
+            <strong className="text-white font-semibold">{guest.name}</strong>{" "}
+            de la lista? Esta acción no se puede deshacer.
           </p>
         </div>
 

@@ -1,4 +1,3 @@
-// GoogleMapEmbed — embedded map with external link button. (SRP)
 "use client";
 
 import { MapPin, ExternalLink } from "lucide-react";
@@ -7,13 +6,11 @@ import { EVENT } from "@/lib/constants";
 export function GoogleMapEmbed() {
   return (
     <div className="flex flex-col gap-2 w-full">
-      {/* Address pill */}
       <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
         <MapPin size={16} className="text-cyan-400 shrink-0" />
         <span className="text-sm text-white/80">{EVENT.fullAddress}</span>
       </div>
 
-      {/* Embedded map via iframe */}
       <div className="relative w-full overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-cyan-500/5">
         <iframe
           title="Ubicación del evento"
@@ -26,7 +23,6 @@ export function GoogleMapEmbed() {
           allowFullScreen={false}
           referrerPolicy="no-referrer-when-downgrade"
         />
-        {/* Overlay with link to open in Google Maps */}
         <a
           href={EVENT.googleMapsUrl}
           target="_blank"

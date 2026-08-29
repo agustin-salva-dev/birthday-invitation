@@ -1,5 +1,3 @@
-// CSV export utility. (SRP — single responsibility: CSV generation)
-
 import type { Guest } from "@/types";
 
 function escapeCsvField(value: string): string {
@@ -10,7 +8,13 @@ function escapeCsvField(value: string): string {
 }
 
 export function generateGuestsCsv(guests: Guest[]): string {
-  const headers = ["Nombre", "Estado", "Acompañantes", "Total Personas", "Fecha de respuesta"];
+  const headers = [
+    "Nombre",
+    "Estado",
+    "Acompañantes",
+    "Total Personas",
+    "Fecha de respuesta",
+  ];
 
   const statusLabels: Record<Guest["status"], string> = {
     CONFIRMED: "Confirmado",

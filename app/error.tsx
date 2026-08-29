@@ -1,4 +1,3 @@
-// Global error boundary — catches unexpected errors during rendering. (SRP)
 "use client";
 
 import { useEffect } from "react";
@@ -32,7 +31,8 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
             Algo salió mal 🐉
           </h2>
           <p className="text-white/50 text-sm">
-            Ocurrió un error inesperado. No te preocupes, podés intentar de nuevo.
+            Ocurrió un error inesperado. No te preocupes, podés intentar de
+            nuevo.
           </p>
         </div>
         <Button id="error-retry-btn" variant="primary" onClick={reset}>
